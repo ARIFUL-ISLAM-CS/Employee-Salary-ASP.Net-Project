@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeSalaryDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Employee_Details">
+    <Key>
+      <PropertyRef Name="Emp_ID" />
+    </Key>
+    <Property Name="Emp_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Emp_Name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Emp_Gender" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Emp_DOB" Type="DateTime" Precision="3" />
+    <Property Name="Emp_Address" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Emp_Email" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Emp_Contact" Type="Int32" />
+    <Property Name="Emp_Pic" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Emp_Basic_Salary" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Designation_ID" Type="Int32" />
+    <Property Name="Department_ID" Type="Int32" />
+    <Property Name="Gender_ID" Type="Int32" />
+    <Property Name="Emp_Joining" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Department" Relationship="EmployeeSalaryDBModel.FK__Employee___Depar__2A4B4B5E" FromRole="Employee_Details" ToRole="Department" />
+    <NavigationProperty Name="Designation" Relationship="EmployeeSalaryDBModel.FK__Employee___Desig__29572725" FromRole="Employee_Details" ToRole="Designation" />
+    <NavigationProperty Name="Gender" Relationship="EmployeeSalaryDBModel.FK__Employee___Gende__2B3F6F97" FromRole="Employee_Details" ToRole="Gender" />
+  </EntityType>
+  <EntityContainer Name="EmployeeSalaryDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Employee_Details" EntityType="Self.Employee_Details" />
+    <EntitySet Name="Departments" EntityType="EmployeeSalaryDBModel.Department" />
+    <EntitySet Name="Designations" EntityType="EmployeeSalaryDBModel.Designation" />
+    <EntitySet Name="Genders" EntityType="EmployeeSalaryDBModel.Gender" />
+    <AssociationSet Name="FK__Employee___Depar__2A4B4B5E" Association="EmployeeSalaryDBModel.FK__Employee___Depar__2A4B4B5E">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Employee_Details" EntitySet="Employee_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee___Desig__29572725" Association="EmployeeSalaryDBModel.FK__Employee___Desig__29572725">
+      <End Role="Designation" EntitySet="Designations" />
+      <End Role="Employee_Details" EntitySet="Employee_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee___Gende__2B3F6F97" Association="EmployeeSalaryDBModel.FK__Employee___Gende__2B3F6F97">
+      <End Role="Gender" EntitySet="Genders" />
+      <End Role="Employee_Details" EntitySet="Employee_Details" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Department_ID" />
+    </Key>
+    <Property Name="Department_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Department_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Employee_Details" Relationship="EmployeeSalaryDBModel.FK__Employee___Depar__2A4B4B5E" FromRole="Department" ToRole="Employee_Details" />
+  </EntityType>
+  <EntityType Name="Designation">
+    <Key>
+      <PropertyRef Name="Designation_ID" />
+    </Key>
+    <Property Name="Designation_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Designation_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Employee_Details" Relationship="EmployeeSalaryDBModel.FK__Employee___Desig__29572725" FromRole="Designation" ToRole="Employee_Details" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="Gender_ID" />
+    </Key>
+    <Property Name="Gender_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gender_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Employee_Details" Relationship="EmployeeSalaryDBModel.FK__Employee___Gende__2B3F6F97" FromRole="Gender" ToRole="Employee_Details" />
+  </EntityType>
+  <Association Name="FK__Employee___Depar__2A4B4B5E">
+    <End Type="EmployeeSalaryDBModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="EmployeeSalaryDBModel.Employee_Details" Role="Employee_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Department_ID" />
+      </Principal>
+      <Dependent Role="Employee_Details">
+        <PropertyRef Name="Department_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee___Desig__29572725">
+    <End Type="EmployeeSalaryDBModel.Designation" Role="Designation" Multiplicity="0..1" />
+    <End Type="EmployeeSalaryDBModel.Employee_Details" Role="Employee_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Designation">
+        <PropertyRef Name="Designation_ID" />
+      </Principal>
+      <Dependent Role="Employee_Details">
+        <PropertyRef Name="Designation_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee___Gende__2B3F6F97">
+    <End Type="EmployeeSalaryDBModel.Gender" Role="Gender" Multiplicity="0..1" />
+    <End Type="EmployeeSalaryDBModel.Employee_Details" Role="Employee_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="Gender_ID" />
+      </Principal>
+      <Dependent Role="Employee_Details">
+        <PropertyRef Name="Gender_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

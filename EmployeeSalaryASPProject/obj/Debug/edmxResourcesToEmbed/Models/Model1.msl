@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EmployeeSalaryDBModelStoreContainer" CdmEntityContainer="EmployeeSalaryDBEntities">
+    <EntitySetMapping Name="Employee_Details">
+      <EntityTypeMapping TypeName="EmployeeSalaryDBModel.Employee_Details">
+        <MappingFragment StoreEntitySet="Employee_Details">
+          <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+          <ScalarProperty Name="Emp_Name" ColumnName="Emp_Name" />
+          <ScalarProperty Name="Emp_Gender" ColumnName="Emp_Gender" />
+          <ScalarProperty Name="Emp_DOB" ColumnName="Emp_DOB" />
+          <ScalarProperty Name="Emp_Address" ColumnName="Emp_Address" />
+          <ScalarProperty Name="Emp_Email" ColumnName="Emp_Email" />
+          <ScalarProperty Name="Emp_Contact" ColumnName="Emp_Contact" />
+          <ScalarProperty Name="Emp_Pic" ColumnName="Emp_Pic" />
+          <ScalarProperty Name="Emp_Basic_Salary" ColumnName="Emp_Basic_Salary" />
+          <ScalarProperty Name="Designation_ID" ColumnName="Designation_ID" />
+          <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
+          <ScalarProperty Name="Gender_ID" ColumnName="Gender_ID" />
+          <ScalarProperty Name="Emp_Joining" ColumnName="Emp_Joining" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="EmployeeSalaryDBModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+          <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Designations">
+      <EntityTypeMapping TypeName="EmployeeSalaryDBModel.Designation">
+        <MappingFragment StoreEntitySet="Designation">
+          <ScalarProperty Name="Designation_Name" ColumnName="Designation_Name" />
+          <ScalarProperty Name="Designation_ID" ColumnName="Designation_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genders">
+      <EntityTypeMapping TypeName="EmployeeSalaryDBModel.Gender">
+        <MappingFragment StoreEntitySet="Gender">
+          <ScalarProperty Name="Gender_Name" ColumnName="Gender_Name" />
+          <ScalarProperty Name="Gender_ID" ColumnName="Gender_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainPage.master.cs" Inherits="EmployeeSalaryASPProject.MasterPage.MainPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server" style="font-family: Algerian; color: #000080; padding: 10px; border-bottom-style: double; border-bottom-color: #800000; background-color: #FFFFFF;">
+    <title>SoftNet.BD.Ltd</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="navbar navbar-inverse navbar-fixed-top" style="font-family: Algerian; color: #000080; padding: 10px; border-bottom-style: double; border-bottom-color: #800000; background-color: #FFFFFF">
+            <div class="container">
+                <div class="navbar-header" style="color: #000080">
+                    <a class="navbar-brand" runat="server" href="~/WebPages/Emp_Add.aspx" style="color: #000080">SoftNet.BD.Ltd</a>
+                </div>
+                <div class="navbar-collapse collapse" style="color: #800080">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/WebPages/Emp_Add.aspx">Add Employee</a></li>
+                        <li><a runat="server" href="~/WebPages/FormViewN.aspx">Form View</a></li>
+                        <li><a runat="server" href="~/WebPages/DataListN.aspx">DataList View</a></li>
+                        <li><a runat="server" href="~/WebPages/ObjectDataForDetailsView.aspx">ObjDetails</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div>
+            <asp:LinkButton ID="btnLogout" Text="Log out" runat="server" OnClick="btnLogout_Click"></asp:LinkButton>
+        </div>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+          <div>
+        <hr />
+            <footer style="font-family: Algerian; color: #000080; padding: 10px; border-top-style: double; border-top-color: #800000">
+                <p>&copy; <%: DateTime.Now.Year %> - Design by SoftNet.BD.Ltd</p>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
